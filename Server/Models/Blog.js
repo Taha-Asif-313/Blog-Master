@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose, { SchemaType } from "mongoose";
 
 const blogSchema = new mongoose.Schema(
   {
@@ -8,15 +8,17 @@ const blogSchema = new mongoose.Schema(
     },
     title: {
       type: String,
-      required: [true, "title is required!"],
+      required: true,
     },
-    description: {
+    content: {
       type: String,
-      required: [true, "description is required!"],
+      required: true,
     },
     imageUrl: {
       type: String,
-   
+    },
+    username: {
+      type: String,
     },
   },
   { timestamps: true }

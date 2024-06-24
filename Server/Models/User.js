@@ -4,25 +4,25 @@ const userSchema = new mongoose.Schema(
   {
     fullname: {
       type: String,
-      required: [true, "name is required!"],
+      required: true,
     },
     username: {
       type: String,
-      required: [true, "username is required!"],
+      required: true,
       unique: true,
     },
     email: {
       type: String,
-      required: [true, "email is required!"],
+      required: true,
       unique: true,
     },
     password: {
       type: String,
-      required: [true, "password is required!"],
+      required: true,
     },
     gender: {
       type: String,
-      required: [true, "gender is required!"],
+      required: true,
     },
     profilePic: {
       type: String,
@@ -32,8 +32,8 @@ const userSchema = new mongoose.Schema(
       {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Blogs",
-        Default: []
-      }
+        Default: [],
+      },
     ],
   },
   { timestamps: true }

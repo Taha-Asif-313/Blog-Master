@@ -2,6 +2,7 @@ import User from "../Models/User.js";
 import Blog from "../Models/Blog.js";
 import bcrypt from "bcrypt";
 import { generateToken } from "../Utils/tokenGenerator.js";
+import { tokenRemover } from "../Utils/tokenRemover.js";
 
 // Register User
 export const register = async (req, res) => {
@@ -48,7 +49,7 @@ export const register = async (req, res) => {
       password: hashedPassword,
       gender,
       profilePic:
-      gender === "male"
+        gender === "male"
           ? "https://avatar.iran.liara.run/public/boy"
           : "https://avatar.iran.liara.run/public/girl",
     });
@@ -131,6 +132,23 @@ export const login = async (req, res) => {
   }
 };
 
+// Logout User
+export const logout = async (req, res) => {
+  try {
+    await tokenRemover(res);
+    return res.status(200).json({
+      success: true,
+      message: "Logout successfully!",
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(400).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
 // Update User
 export const update = async (req, res) => {
   try {
@@ -141,7 +159,7 @@ export const update = async (req, res) => {
     const { email, username } = req.body;
 
     // Check if username exist or not
-   
+
     const isUsername = await User.findOne({ username: username });
     if (isUsername) {
       return res.status(400).json({
@@ -161,16 +179,14 @@ export const update = async (req, res) => {
 
     // Find user by id and update the data
     if (username) {
-     const user=  await User.findByIdAndUpdate(userId, { username: username });
-     await user.save()
+      const user = await User.findByIdAndUpdate(userId, { username: username });
+      await user.save();
     }
-    
+
     if (email) {
-    const user =  await User.findByIdAndUpdate(userId, { email: email });
-    await user.save()
+      const user = await User.findByIdAndUpdate(userId, { email: email });
+      await user.save();
     }
-
-
 
     // Response
     return res.status(201).json({
@@ -188,28 +204,25 @@ export const update = async (req, res) => {
 // Delete User
 export const deleteUser = async (req, res) => {
   try {
-    
-       // Get id from params
-       const userId = req.params.id;
+    // Get id from params
+    const userId = req.params.id;
 
-       // Find user for delete by id
-       const deletedUser = await User.findById(userId)
+    // Find user for delete by id
+    const deletedUser = await User.findById(userId);
 
-       // Delete the user blogs
-       await Blog.deleteMany(deleteUser.blogs)
+    // Delete the user blogs
+    await Blog.deleteMany(deleteUser.blogs);
 
-       // Delete the user
-       await User.deleteOne(deletedUser)
-       
-       // Response
-       return res.status(201).json({
-        success:true,
-        message:"deleted successfully!"
-       })
-       
+    // Delete the user
+    await User.deleteOne(deletedUser);
 
+    // Response
+    return res.status(201).json({
+      success: true,
+      message: "deleted successfully!",
+    });
   } catch (error) {
-    console.log(error)
+    console.log(error);
     return res.status(400).json({
       success: false,
       message: "internal server error",

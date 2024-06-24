@@ -1,6 +1,6 @@
 import express from 'express'
-import { create, userBlogs, updateBlog, deleteBlog, allBlogs } from "../Controllers/blogController.js"
-// const isLogin = require("../MiddleWares/isLogin")
+import { create, userBlogs, updateBlog, deleteBlog, allBlogs, readBlog } from "../Controllers/blogController.js"
+
 // Router
 const router = express.Router();
 
@@ -13,8 +13,11 @@ router.get("/allblogs" , allBlogs)
 // Get User Blogs route as GET request
 router.get("/user-blogs/:id" , userBlogs )
 
+// Get the blog data to read the blog 
+router.get("/read/:id" , readBlog)
+
 // Update Blog route as PUT request
-router.put("/update/:id" , updateBlog)
+router.put("/update/:id" ,updateBlog)
 
 // Delete Blog route as DELETE request
 router.delete("/delete/:id" , deleteBlog )

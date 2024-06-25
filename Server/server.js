@@ -9,10 +9,11 @@ const app = express();
 
 // Cors
 const corsOptions = {
-  origin: 'https://hehehoho1.netlify.app',
+  origin: 'https://blogmaster313.netlify.app',
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   preflightContinue: false,
-  optionsSuccessStatus: 204
+  optionsSuccessStatus: 204,
+  allowedHeaders: ['Content-Type', 'Authorization'] // Add other headers as necessary
 };
 
 // Routes

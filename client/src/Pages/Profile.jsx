@@ -44,7 +44,7 @@ const Profile = () => {
       try {
         // Make get request to fetch blogs from database
         await axios
-          .get(`http://localhost:5000/api/blog/user-blogs/${userData.userId}`)
+          .get(`https://blog-master-backend.vercel.app/api/blog/user-blogs/${userData.userId}`)
           .then((res) => {
             if (!res.data.success) {
               toast.error(res.data.message || "server response error!");

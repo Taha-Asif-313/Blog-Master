@@ -44,7 +44,7 @@ const Register = () => {
         toast.error("Please fill all fields");
       }
       await axios
-        .post("http://localhost:5000/api/user/register", inputs)
+        .post("https://blog-master-backend.vercel.app/api/user/register", inputs)
         .then((res) => {
           if (res.data.success) {
             navigate("/login");

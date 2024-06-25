@@ -36,7 +36,7 @@ const Login = () => {
         toast.error("Please fill all fields");
       }
       await axios
-        .post(`http://localhost:5000/api/user/login`, inputs, {
+        .post(`https://blog-master-backend.vercel.app/api/user/login`, inputs, {
           withCredentials: true,
         })
         .then((res) => {

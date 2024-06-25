@@ -6,21 +6,20 @@ import axios from "axios";
 import LoadingCircle from "./LoadingCircle";
 
 const BlogCard = ({ title, author, id, image, Delete }) => {
-
   // States
-  const [loading, setloading] = useState(false)
+  const [loading, setloading] = useState(false);
 
   // Preview blog content
   const Title = title[0].toUpperCase() + title.slice(1);
 
   const deleteBlog = async () => {
-setloading(true)
+    setloading(true);
     try {
       await axios
         .delete(`http://localhost:5000/api/blog/delete/${id}`)
         .then((res) => {
           toast.success(res.data.message);
-          setloading(false)
+          setloading(false);
         })
         .catch((error) => {
           toast.error(error.message);
@@ -30,12 +29,12 @@ setloading(true)
     }
   };
 
-  if(loading){
+  if (loading) {
     return (
-    <div className="mt-10">
-
-      <LoadingCircle/>
-    </div>)
+      <div className="mt-10">
+        <LoadingCircle />
+      </div>
+    );
   }
 
   return (

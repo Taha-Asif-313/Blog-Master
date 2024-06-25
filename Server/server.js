@@ -17,7 +17,7 @@ connectDB();
 // MiddleWares
 app.use(express.json());
 app.use(cors({
-  origin: "https://blogmaster313.netlify.app/",
+  origin: "https://hehehoho1.netlify.app/",
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true,
   allowedHeaders: ['Content-Type', 'Authorization']

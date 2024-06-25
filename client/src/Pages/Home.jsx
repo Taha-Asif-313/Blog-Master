@@ -50,7 +50,7 @@ const Home = () => {
     <>
       <div className="main h-auto">
         {/* Main hero section || hero image and welcome test */}
-        <div className="main-hero px-10 h-screen w-full flex justify-between items-center flex-col-reverse lg:flex-row">
+        <div className="main-hero px-10 h-screen w-full flex justify-between items-center flex-col-reverse mt-14 lg:mt-0 lg:flex-row">
           <div className="hero-right h-full w-full lg:w-[50%] flex flex-col justify-center lg:items-start items-center gap-6 ">
             <h1 className="text-4xl lg:text-8xl font-semibold text-center lg:text-left">
               Welcome to <span className="text-primary">Our Site !</span>
@@ -102,7 +102,7 @@ const Home = () => {
         </div>
 
         {/* information about this website some features and benifits */}
-        <div className="information-section h-auto px-10 ">
+        <div className="information-section h-auto my-10 lg:my-0 px-10 ">
           <h1 className="text-5xl lg:text-7xl text-center my-10 font-bold">
             Benefits
           </h1>
@@ -131,11 +131,11 @@ const Home = () => {
                 experimentation, reader interaction, and disciplined reflection.
               </div>
 
-              <hr />
+           
             </li>
 
             <li>
-              <hr />
+            
 
               <div className="timeline-middle text-primary">
                 <svg
@@ -161,11 +161,11 @@ const Home = () => {
                 fostering continuous learning.
               </div>
 
-              <hr />
+          
             </li>
 
             <li>
-              <hr />
+           
 
               <div className="timeline-middle text-primary">
                 <svg
@@ -192,11 +192,11 @@ const Home = () => {
                 just a click.
               </div>
 
-              <hr />
+           
             </li>
 
             <li>
-              <hr />
+            
 
               <div className="timeline-middle text-primary">
                 <svg
@@ -223,7 +223,7 @@ const Home = () => {
                 perspectives, and sometimes even forming lasting connections.
               </div>
 
-              <hr />
+              
             </li>
           </ul>
         </div>

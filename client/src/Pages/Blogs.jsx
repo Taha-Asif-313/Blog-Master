@@ -45,7 +45,7 @@ const Blogs = () => {
     <>
       <div className="main flex-col min-h-screen mt-14 flex">
         <h1 className="mx-auto text-primary text-center text-5xl my-10 font-bold">
-          Read blogs of others !
+          Blogs !
         </h1>
         <div className="blogs h-full w-[90%] mx-auto flex lg:flex-row flex-col flex-wrap">
           {blogs.length !== 0 ? (

@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import axios from "axios";
 import { AuthContext } from "../Context/authContext";
@@ -9,6 +9,11 @@ import { Editor } from "primereact/editor";
 import "primereact/resources/themes/lara-light-cyan/theme.css";
 
 const CreateBlog = () => {
+
+  // UseNavigate
+  const navigate  = useNavigate()
+
+
   // states
   const [title, settitle] = useState("");
   const [content, setcontent] = useState("");
@@ -26,7 +31,9 @@ const CreateBlog = () => {
         { title, content , imageUrl}
       
       );
-      if (response.data.success) toast.success(response.data.message);
+      if (response.data.success) {toast.success(response.data.message)
+        navigate("/profile")
+      };
     } catch (error) {
       toast.error(error.message);
     }

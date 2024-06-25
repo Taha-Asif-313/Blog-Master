@@ -26,7 +26,7 @@ app.use("/api/blog", blogRoute);
 
 
 // Port
-const port = 5000;
+const port = process.env.PORT || 5000;
 
 // App listening
 app.listen(port, () => {

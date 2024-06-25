@@ -66,7 +66,7 @@ const BlogCard = ({ title, author, id, image, Delete }) => {
           <img
             className="w-10 rounded-full"
             src={"https://avatar.iran.liara.run/public" || ""}
-            alt=""
+    
           />
 
           {/* User id or Username */}

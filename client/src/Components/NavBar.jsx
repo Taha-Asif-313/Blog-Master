@@ -154,7 +154,7 @@ const NavBar = () => {
                 })
               : logoutIems.map((item) => {
                   return (
-                    <li>
+                    <li className="w-full py-2 pl-5 border-b border-primary">
                       <Link to={item.link}>{item.name}</Link>
                     </li>
                   );

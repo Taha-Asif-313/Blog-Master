@@ -12,8 +12,7 @@ const corsOptions = {
   origin: 'https://blogmaster313.netlify.app',
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   preflightContinue: false,
-  optionsSuccessStatus: 204,
-  allowedHeaders: ['Content-Type', 'Authorization'] // Add other headers as necessary
+  optionsSuccessStatus: 204// Add other headers as necessary
 };
 
 // Routes

@@ -7,6 +7,14 @@ import cookieParser from 'cookie-parser';
 // App
 const app = express();
 
+// Cors
+const corsOptions = {
+  origin: 'https://hehehoho1.netlify.app',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  preflightContinue: false,
+  optionsSuccessStatus: 204
+};
+
 // Routes
 import userRoute from './Routes/userRoutes.js'
 import blogRoute from './Routes/blogRoutes.js'
@@ -16,12 +24,7 @@ connectDB();
 
 // MiddleWares
 app.use(express.json());
-app.use(cors({
-  origin: "https://hehehoho1.netlify.app/",
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  credentials: true,
-  allowedHeaders: ['Content-Type', 'Authorization']
-}));
+app.use(cors(corsOptions));
 app.use(cookieParser());
 app.use("/api/user", userRoute);
 app.use("/api/blog", blogRoute);

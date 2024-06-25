@@ -4,7 +4,7 @@ const clientOptions = { serverApi: { version: '1', strict: true, deprecationErro
 const uri = "mongodb+srv://taha:taha@blogmaster.0odyxwk.mongodb.net/?retryWrites=true&w=majority&appName=BlogMaster";
 const connectDB = ()=>{
     try {
-        mongoose.connect(uri,clientOptions)
+        mongoose.connect(process.env.MONGO_URI,clientOptions)
          .then(() => console.log('Connected!'))
          .catch(()=> console.log("not connected!"))
        } catch (error) {

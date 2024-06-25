@@ -6,6 +6,7 @@ import toast from "react-hot-toast";
 import LoadingCircle from "../Components/LoadingCircle";
 
 const Login = () => {
+
   // Use navigate for navigation
   const navigate = useNavigate();
 
@@ -35,7 +36,7 @@ const Login = () => {
         toast.error("Please fill all fields");
       }
       await axios
-        .post("http://localhost:5000/api/user/login", inputs, {
+        .post(`http://localhost:5000/api/user/login`, inputs, {
           withCredentials: true,
         })
         .then((res) => {
@@ -43,15 +44,16 @@ const Login = () => {
             setuserData(res.data);
             loginUser();
             toast.success(res.data.message);
-            setUserLogin();
             navigate("/");
             setloading(false);
           } else {
             toast.error(res.data.message);
+            setloading(false)
           }
         });
     } catch (error) {
       toast.error(error.response.data.message);
+      setloading(false)
     }
   };
 

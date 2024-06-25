@@ -13,37 +13,12 @@ const AuthProvider = ({ children }) => {
     setisLogin(true);
   };
 
-  const setUserLogin = () => {
-    window.localStorage.setItem("User",{
-      fullname:userData.fullname,
-      username:userData.username,
-      userId:userData.userId,
-      profilePic:userData.profilePic
-    });
-  };
-
-  const setUserStatus = ()=>{
-    const user = window.localStorage.getItem("User")
-    if(user){
-      setisLogin(true)
-    }
-    else{
-      setisLogin(false)
-    }
-  }
 
   const logoutUser = () => {
     setisLogin(false);
     window.localStorage.removeItem("User");
   };
 
-  useEffect(() => {
-  
-  
-    return () => {
-      setUserStatus()
-    }
-  }, [])
   
   return (
     <AuthContext.Provider
@@ -52,9 +27,7 @@ const AuthProvider = ({ children }) => {
         setuserData,
         isLogin,
         loginUser,
-        logoutUser,
-        setUserLogin,
-        setUserStatus
+        logoutUser
       }}
     >
       {children}

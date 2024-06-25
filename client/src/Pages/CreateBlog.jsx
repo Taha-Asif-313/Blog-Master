@@ -78,7 +78,7 @@ const CreateBlog = () => {
                 Profile
               </Link>
             </p>
-            <button className="w-full bg-primary text-black font-semibold py-2 px-4 rounded-md">
+            <button className="w-full bg-primary text-stone-50 font-semibold py-2 px-4 rounded-md">
               Publish Blog
             </button>
           </form>

@@ -66,7 +66,7 @@ setloading(true)
           {/* User logo */}
           <img
             className="w-10 rounded-full"
-            src={"https://avatar.iran.liara.run/public/47" || ""}
+            src={"https://avatar.iran.liara.run/public" || ""}
             alt=""
           />
 

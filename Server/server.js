@@ -24,9 +24,7 @@ app.use(cookieParser());
 app.use("/api/user", userRoute);
 app.use("/api/blog", blogRoute);
 
-app.get("/",(req,res)=>{
-  res.send("hello backend")
-})
+
 // Port
 const port = 5000;
 

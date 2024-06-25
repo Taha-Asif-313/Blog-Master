@@ -8,7 +8,7 @@ import { PiBookOpenTextFill } from "react-icons/pi";
 const NavBar = () => {
   // User login or not
   const { userData, isLogin } = useContext(AuthContext);
-  console.log(userData);
+  
   // Login item list
   const loginItems = [
     { name: "Home", link: "/" },

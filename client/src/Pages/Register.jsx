@@ -54,10 +54,12 @@ const Register = () => {
             toast.success(res.data.message);
           } else {
             toast.error("some error occurs!");
+            setloading(false)
           }
         });
     } catch (error) {
        toast.error(error.response.data.message);
+       setloading(false)
     }
   };
 

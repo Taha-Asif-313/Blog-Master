@@ -9,7 +9,7 @@ const app = express();
 
 // Cors
 const corsOptions = {
-  origin: '*',
+  origin: 'https://blogmaster313.netlify.app',
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   allowedHeaders: ['Content-Type', 'Authorization']
 };

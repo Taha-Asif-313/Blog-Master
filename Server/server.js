@@ -11,6 +11,7 @@ const app = express();
 const corsOptions = {
   origin: 'https://blogmaster313.netlify.app',
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  allowedHeaders: ['Content-Type', 'Authorization']
 };
 
 // Routes
@@ -23,9 +24,7 @@ connectDB();
 // MiddleWares
 app.use(express.json());
 app.use(
-  cors({
-    origin: "https://blogmaster313.netlify.app/"
-  })
+  cors(corsOptions)
 );
 app.use(cookieParser());
 app.use("/api/user", userRoute);

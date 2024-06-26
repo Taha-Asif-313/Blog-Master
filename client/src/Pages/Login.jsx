@@ -37,10 +37,6 @@ const Login = () => {
       }
       await axios
         .post(`https://blog-master-server.vercel.app/api/user/login`, inputs, {
-           
-  mode: 'cors',
-  credentials: 'include'
-
           withCredentials: true,
         })
         .then((res) => {

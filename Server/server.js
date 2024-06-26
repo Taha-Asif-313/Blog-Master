@@ -10,7 +10,7 @@ const app = express();
 // Cors
 // CORS configuration options
 const corsOptions = {
-  origin: ['http://localhost:5000', 'https://blogmaster313.netlify.app'], // Specify allowed origins
+  origin: ['http://localhost:3000', 'https://blog-master-xi.vercel.app'], // Specify allowed origins
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   allowedHeaders: ['Content-Type', 'Authorization'], // Specify allowed headers
   credentials: true, // Allow credentials (cookies, authorization headers, etc.)

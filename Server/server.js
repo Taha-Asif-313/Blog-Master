@@ -14,6 +14,7 @@ const corsOptions = {
   allowedHeaders: ['Content-Type', 'Authorization']
 };
 
+
 // Routes
 import userRoute from './Routes/userRoutes.js'
 import blogRoute from './Routes/blogRoutes.js'
@@ -23,9 +24,7 @@ connectDB();
 
 // MiddleWares
 app.use(express.json());
-app.use(
-  cors(corsOptions)
-);
+app.use(cors(corsOptions));
 app.use(cookieParser());
 app.use("/api/user", userRoute);
 app.use("/api/blog", blogRoute);

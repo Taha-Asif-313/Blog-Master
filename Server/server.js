@@ -10,8 +10,8 @@ const app = express();
 // Cors
 // CORS configuration options
 const corsOptions = {
-  origin: ['http://localhost:3000', 'https://blog-master-xi.vercel.app'], // Specify allowed origins
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    origin: "*",
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   allowedHeaders: ['Content-Type', 'Authorization'], // Specify allowed headers
   credentials: true, // Allow credentials (cookies, authorization headers, etc.)
   preflightContinue: false,

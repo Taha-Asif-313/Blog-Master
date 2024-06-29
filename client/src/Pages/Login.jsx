@@ -18,7 +18,7 @@ const Login = () => {
   const [inputs, setinputs] = useState({
     email: "",
     password: "",
-    confirmPassword: "",
+
   });
   const [loading, setloading] = useState(false);
 
@@ -32,14 +32,15 @@ const Login = () => {
     e.preventDefault();
     setloading(true);
     try {
-      if (!inputs.email || !inputs.password || !inputs.confirmPassword) {
+      if (!inputs.email || !inputs.password) {
         toast.error("Please fill all fields");
       }
       await axios
-        .post(`https://blog-master-backend.vercel.app/api/user/login`, inputs, {
+        .post(`https://blog-master-server.vercel.app/api/user/login`, inputs, {
           withCredentials: true,
         })
         .then((res) => {
+          console.log(res)
           if (res.data.success) {
             setuserData(res.data);
             loginUser();
@@ -103,14 +104,6 @@ const Login = () => {
               placeholder="password"
               name="password"
               value={inputs.password}
-              onChange={handleChange}
-            />
-            <input
-              className="px-2 py-2 bg-stone-50 outline-none border-b border-primary w-full"
-              type="text"
-              placeholder="Confirm Password"
-              name="confirmPassword"
-              value={inputs.confirmPassword}
               onChange={handleChange}
             />
 

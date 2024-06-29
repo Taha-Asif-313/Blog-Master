@@ -17,7 +17,7 @@ const Blogs = () => {
       setloading(true);
       try {
         await axios
-          .get(`https://blog-master-backend.vercel.app/api/blog/allblogs`)
+          .get(`https://blog-master-server.vercel.app/api/blog/allblogs`)
           .then((res) => {
             setblogs(res.data.allBlogs);
             setloading(false);

@@ -44,7 +44,7 @@ const Register = () => {
         toast.error("Please fill all fields");
       }
       await axios
-        .post("https://blog-master-backend.vercel.app/api/user/register", inputs)
+        .post("https://blog-master-server.vercel.app/api/user/register", inputs)
         .then((res) => {
           if (res.data.success) {
             navigate("/login");
@@ -91,9 +91,9 @@ const Register = () => {
         <div className="left h-full w-full md:w-[50%] flex justify-center items-center">
           <form
             onSubmit={submitData}
-            className="w-full md:w-[50%] py-2 px-4 border-2 border-primary rounded-md flex flex-col justify-between items-center gap-2"
+            className="w-full md:w-[50%] py-2 px-4 border-2 border-primary rounded-md flex flex-col justify-between items-start gap-2"
           >
-            <h1 className="text-center text-2xl text-primary font-bold ">
+            <h1 className="text-center w-full text-2xl text-primary font-bold ">
               Register
             </h1>
 
@@ -137,15 +137,15 @@ const Register = () => {
               value={inputs.confirmPassword}
               onChange={handleChange}
             />
-            <input
-              className="px-2 py-2 bg-transparent text-black outline-none border-b border-primary w-full"
-              type="text"
-              placeholder="Gender"
-              name="gender"
-              value={inputs.gender}
-              onChange={handleChange}
-            />
-            <p className="w-full font-medium text-center">
+            <div className="gender flex justify-between items-center gap-5">
+              <p>Gender : </p>
+            <select className="bg-transparent border items-start border-gray-400 text-gray-700 py-2 px-4 rounded">
+      <option value="male" className="bg-white text-gray-700">Male</option>
+      <option value="female" className="bg-white text-gray-700">Female</option>
+    </select>
+            </div>
+             
+            <p className="w-full font-medium text-start">
               Already have an account?{" "}
               <Link to={"/login"} className="text-primary font-semibold">
                 Login

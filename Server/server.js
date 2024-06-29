@@ -17,7 +17,7 @@ connectDB();
 // MiddleWares
 app.use(express.json());
 app.use(cors({
-  origin: 'https://blogmaster313.netlify.app',
+  origin: "http://localhost:3000",
   credentials: true,
 }));
 app.use(cookieParser());

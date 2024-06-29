@@ -22,7 +22,7 @@ const Profile = () => {
     // Try to fetch api
     try {
       // make get request using axios
-      await axios.get("http://localhost:5000/api/user/logout").then((res) => {
+      await axios.get("https://blog-master-backend.vercel.app/api/user/logout").then((res) => {
         if (res.data.success) {
           toast.success("Logout successfully!");
         }

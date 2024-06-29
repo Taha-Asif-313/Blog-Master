@@ -50,7 +50,7 @@ const NavBar = () => {
       >
         <img
           className="w-full rounded-full"
-          src={userData.profilePic || "/default-profile.jpg"}
+          src={"/default-profile.jpg"}
           alt=""
         />
       </div>
@@ -162,7 +162,7 @@ const NavBar = () => {
           </ul>
 
           {/* Navbar buttons */}
-          <div className="buttons flex flex-col justify-center items-start my-4 gap-5 w-full pl-5">
+          <div className="buttons flex flex-col justify-start items-start my-4 gap-5 w-full pl-5">
             {isLogin ? ProfilePic() : RegisterBtn()}
           </div>
         </div>

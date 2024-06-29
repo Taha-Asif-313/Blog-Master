@@ -80,15 +80,15 @@ export const register = async (req, res) => {
 export const login = async (req, res) => {
   try {
     // Get data
-    const { username, email, password, confirmPassword } = req.body;
+    const { username, email, password } = req.body;
 
-    // Confirm that both password are same or not
-    if (password !== confirmPassword) {
-      return res.json({
-        success: false,
-        message: "Password not match!",
-      });
-    }
+    // // Confirm that both password are same or not
+    // if (password !== confirmPassword) {
+    //   return res.json({
+    //     success: false,
+    //     message: "Password not match!",
+    //   });
+    // }
 
     // Find User by email or username
     const user = username

@@ -87,7 +87,7 @@ const NavBar = () => {
         </div>
 
         {/* Menu icons  */}
-        <div className="mobile-menu-icons block lg:hidden">
+        <div className="mobile-menu-icons px-[10px] block lg:hidden">
           {menuOpen ? (
             <IoCloseSharp
               onClick={toggleMenu}

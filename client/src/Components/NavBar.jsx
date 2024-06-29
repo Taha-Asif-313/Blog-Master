@@ -50,11 +50,7 @@ const NavBar = () => {
       >
         <img
           className="w-full rounded-full"
-<<<<<<< HEAD
           src={"/default-profile.jpg"}
-=======
-          src={userData ? userData.profilePic : "/default-profile.jpg"}
->>>>>>> 041219857c7af9022be7a312ba4a217345302f27
           alt=""
         />
       </div>

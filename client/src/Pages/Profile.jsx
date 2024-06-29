@@ -86,7 +86,7 @@ const { userBlogs , setuserBlogs } = useContext(BlogContext);
               className="w-20 rounded-full border-2 border-primary"
               src={
                 `https://ui-avatars.com/api/?name=${userData.fullname}` ||
-                "https://avatar.iran.liara.run/public/job/operator/male"
+                "/default-profile.jpg"
               }
               alt="logo"
             />

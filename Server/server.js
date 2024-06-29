@@ -7,6 +7,20 @@ import cookieParser from 'cookie-parser';
 // App
 const app = express();
 
+// Cors
+// CORS configuration options
+const corsOptions = {
+    origin:['http://localhost:3000', 'https://blogmaster313.netlify.app'],
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  allowedHeaders: ['Content-Type', 'Authorization'], // Specify allowed headers
+  credentials: true, // Allow credentials (cookies, authorization headers, etc.)
+  preflightContinue: false,
+  optionsSuccessStatus: 204
+};
+
+
+
+
 // Routes
 import userRoute from './Routes/userRoutes.js'
 import blogRoute from './Routes/blogRoutes.js'
@@ -16,10 +30,18 @@ connectDB();
 
 // MiddleWares
 app.use(express.json());
+<<<<<<< HEAD
 app.use(cors({
   origin: "http://localhost:3000",
   credentials: true,
 }));
+=======
+// Use the CORS middleware with the configured options
+app.use(cors(corsOptions));
+
+// Handle preflight requests for all routes
+app.options('*', cors(corsOptions));
+>>>>>>> 041219857c7af9022be7a312ba4a217345302f27
 app.use(cookieParser());
 app.use("/api/user", userRoute);
 app.use("/api/blog", blogRoute);

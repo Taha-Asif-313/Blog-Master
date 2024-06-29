@@ -50,7 +50,11 @@ const NavBar = () => {
       >
         <img
           className="w-full rounded-full"
+<<<<<<< HEAD
           src={"/default-profile.jpg"}
+=======
+          src={userData ? userData.profilePic : "/default-profile.jpg"}
+>>>>>>> 041219857c7af9022be7a312ba4a217345302f27
           alt=""
         />
       </div>
@@ -87,7 +91,7 @@ const NavBar = () => {
         </div>
 
         {/* Menu icons  */}
-        <div className="mobile-menu-icons block lg:hidden">
+        <div className="mobile-menu-icons px-[10px] block lg:hidden">
           {menuOpen ? (
             <IoCloseSharp
               onClick={toggleMenu}

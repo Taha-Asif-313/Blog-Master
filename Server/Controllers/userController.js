@@ -82,7 +82,11 @@ export const login = async (req, res) => {
     // Get data
     const { username, email, password } = req.body;
 
+<<<<<<< HEAD
     // // Confirm that both password are same or not
+=======
+    // Confirm that both password are same or not
+>>>>>>> 041219857c7af9022be7a312ba4a217345302f27
     // if (password !== confirmPassword) {
     //   return res.json({
     //     success: false,

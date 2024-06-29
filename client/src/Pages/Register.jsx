@@ -13,13 +13,13 @@ const Register = () => {
   const { setuserData, setUserLogin } = useContext(AuthContext);
 
   // States
+  const [gender, setgender] = useState(null)
   const [inputs, setinputs] = useState({
     fullname: "",
     username: "",
     email: "",
     password: "",
     confirmPassword: "",
-    gender: "",
   });
   const [loading, setloading] = useState(false);
 
@@ -38,13 +38,19 @@ const Register = () => {
         !inputs.username ||
         !inputs.email ||
         !inputs.password ||
-        !inputs.confirmPassword ||
-        !inputs.gender
+        !inputs.confirmPassword
       ) {
         toast.error("Please fill all fields");
       }
       await axios
-        .post("https://blog-master-server.vercel.app/api/user/register", inputs)
+        .post("https://blog-master-server.vercel.app/api/user/register", {
+        inputs.fullname,
+        inputs.username,
+        inputs.email,
+        inputs.password,
+        inputs.confirmPassword,
+              gender
+        })
         .then((res) => {
           if (res.data.success) {
             navigate("/login");
@@ -140,8 +146,8 @@ const Register = () => {
             <div className="gender flex justify-between items-center gap-5">
               <p>Gender : </p>
             <select className="bg-transparent border items-start border-gray-400 text-gray-700 py-2 px-4 rounded">
-      <option value="male" className="bg-white text-gray-700">Male</option>
-      <option value="female" className="bg-white text-gray-700">Female</option>
+      <option onClick={()=>{setgender('male')}} value="male" className="bg-white text-gray-700">Male</option>
+      <option onClick={()=>{setgender('female')} value="female" className="bg-white text-gray-700">Female</option>
     </select>
             </div>
              

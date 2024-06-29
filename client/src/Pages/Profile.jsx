@@ -58,6 +58,7 @@ const { userBlogs , setuserBlogs } = useContext(BlogContext);
               setLoading(false)
             }
             setuserBlogs(res.data.userBlogs);
+            console.log(res.data.userBlogs);
             setLoading(false)
           });
         // if any error occurs

@@ -13,13 +13,13 @@ const Register = () => {
   const { setuserData, setUserLogin } = useContext(AuthContext);
 
   // States
-  const [gender, setgender] = useState('male)
+  const [gender, setgender] = useState('male');
   const [inputs, setinputs] = useState({
     fullname: "",
     username: "",
     email: "",
     password: "",
-    confirmPassword: "",
+    confirmPassword: ""
   });
   const [loading, setloading] = useState(false);
 
@@ -44,12 +44,12 @@ const Register = () => {
       }
       await axios
         .post("https://blog-master-server.vercel.app/api/user/register", {
-      fullname:  inputs.fullname,
+        fullname:  inputs.fullname,
         username: inputs.username,
-       email: inputs.email,
-       password: inputs.password,
+        email: inputs.email,
+        password: inputs.password,
         confirmPassword: inputs.confirmPassword,
-              gender: gender
+        gender: gender
         })
         .then((res) => {
           if (res.data.success) {

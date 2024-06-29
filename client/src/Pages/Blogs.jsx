@@ -19,8 +19,10 @@ const Blogs = () => {
         await axios
           .get(`https://blog-master-backend.vercel.app/api/blog/allblogs`)
           .then((res) => {
+            if(res.success){
             setblogs(res.data.allBlogs);
             setloading(false);
+            }
           });
       } catch (error) {
         toast.error(error.message);

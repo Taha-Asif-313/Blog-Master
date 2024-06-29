@@ -30,18 +30,11 @@ connectDB();
 
 // MiddleWares
 app.use(express.json());
-<<<<<<< HEAD
-app.use(cors({
-  origin: "http://localhost:3000",
-  credentials: true,
-}));
-=======
 // Use the CORS middleware with the configured options
 app.use(cors(corsOptions));
 
 // Handle preflight requests for all routes
 app.options('*', cors(corsOptions));
->>>>>>> 041219857c7af9022be7a312ba4a217345302f27
 app.use(cookieParser());
 app.use("/api/user", userRoute);
 app.use("/api/blog", blogRoute);

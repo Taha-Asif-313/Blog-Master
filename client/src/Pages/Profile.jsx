@@ -13,7 +13,7 @@ const Profile = () => {
 
   const [loading, setLoading] = useState(false);
   // User blogs
-const { userBlogs , setuserBlogs } = useContext(BlogContext)
+const { userBlogs , setuserBlogs } = useContext(BlogContext);
 
   // get function form context api
   const { logoutUser, setuserData, userData } = useContext(AuthContext);

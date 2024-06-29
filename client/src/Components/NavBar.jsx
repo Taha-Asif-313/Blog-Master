@@ -50,7 +50,7 @@ const NavBar = () => {
       >
         <img
           className="w-full rounded-full"
-          src={"/default-profile.jpg"}
+          src={ `https://ui-avatars.com/api/?name=${userData.fullname}` || "/default-profile.jpg"}
           alt=""
         />
       </div>

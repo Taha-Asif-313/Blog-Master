@@ -22,7 +22,7 @@ const Profile = () => {
     // Try to fetch api
     try {
       // make get request using axios
-      await axios.get("https://blog-master-backend.vercel.app/api/user/logout").then((res) => {
+      await axios.get("https://blog-master-server.vercel.app/api/user/logout").then((res) => {
         if (res.data.success) {
           toast.success("Logout successfully!");
         }
@@ -44,7 +44,7 @@ const Profile = () => {
       try {
         // Make get request to fetch blogs from database
         await axios
-          .get(`https://blog-master-backend.vercel.app/api/blog/user-blogs/${userData.userId}`)
+          .get(`https://blog-master-server.vercel.app/api/blog/user-blogs/${userData.userId}`)
           .then((res) => {
             if (!res.data.success) {
               toast.error(res.data.message || "server response error!");
@@ -72,7 +72,7 @@ const Profile = () => {
             <img
               className="w-20 rounded-full border-2 border-primary"
               src={
-                userData.profilePic ||
+                `https://ui-avatars.com/api/?name=${userData.fullname}` ||
                 "https://avatar.iran.liara.run/public/job/operator/male"
               }
               alt="logo"

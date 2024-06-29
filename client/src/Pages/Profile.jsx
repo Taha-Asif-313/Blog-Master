@@ -6,8 +6,11 @@ import BlogCard from "../Components/BlogCard";
 import axios from "axios";
 import toast from "react-hot-toast";
 import BlogNotFound from "../Components/BlogNotFound";
+import LoadingCircle from "../Components/LoadingCircle";
 
 const Profile = () => {
+
+  const [loading, setLoading] = useState(false);
   // User blogs
   const [userBlogs, setuserBlogs] = useState([]);
 
@@ -19,12 +22,14 @@ const Profile = () => {
 
   // Logout function
   const logOut = async () => {
+    setLoading(true)
     // Try to fetch api
     try {
       // make get request using axios
       await axios.get("https://blog-master-server.vercel.app/api/user/logout").then((res) => {
         if (res.data.success) {
           toast.success("Logout successfully!");
+          setLoading(false)
         }
         navigate("/");
         setuserData({});
@@ -42,14 +47,17 @@ const Profile = () => {
     async function getBlogs() {
       // try if api fetch
       try {
+        setLoading(true)
         // Make get request to fetch blogs from database
         await axios
           .get(`https://blog-master-server.vercel.app/api/blog/user-blogs/${userData.userId}`)
           .then((res) => {
             if (!res.data.success) {
               toast.error(res.data.message || "server response error!");
+              setLoading(false)
             }
             setuserBlogs(res.data.userBlogs);
+            setLoading(false)
           });
         // if any error occurs
       } catch (error) {
@@ -60,6 +68,10 @@ const Profile = () => {
       getBlogs();
     };
   }, []);
+
+  if(loading){
+    return  <LoadingCircle />
+  }
 
   return (
     <>

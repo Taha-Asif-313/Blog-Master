@@ -33,25 +33,18 @@ const Register = () => {
     e.preventDefault();
     try {
       setloading(true);
-      if (
-        !inputs.fullname ||
-        !inputs.username ||
-        !inputs.email ||
-        !inputs.password ||
-        !inputs.confirmPassword
-      ) {
+      if ( !inputs.fullname || !inputs.username || !inputs.email || !inputs.password || !inputs.confirmPassword ) {
         toast.error("Please fill all fields");
       }
-      await axios
-        .post("https://blog-master-server.vercel.app/api/user/register", {
-        fullname:  inputs.fullname,
+      else {
+      await axios.post("https://blog-master-server.vercel.app/api/user/register", { 
+        fullname: inputs.fullname,
         username: inputs.username,
         email: inputs.email,
         password: inputs.password,
         confirmPassword: inputs.confirmPassword,
         gender: gender
-        })
-        .then((res) => {
+        }).then((res) => {
           if (res.data.success) {
             navigate("/login");
             setuserData(res.data);
@@ -63,6 +56,7 @@ const Register = () => {
             setloading(false)
           }
         });
+      }
     } catch (error) {
        toast.error(error.response.data.message);
        setloading(false)

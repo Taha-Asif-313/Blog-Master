@@ -52,7 +52,7 @@ const Home = () => {
         {/* Main hero section || hero image and welcome test */}
         <div className="main-hero px-10 h-screen w-full flex justify-between items-center flex-col-reverse mt-14 lg:mt-0 lg:flex-row">
           <div className="hero-right h-full w-full lg:w-[50%] flex flex-col justify-center lg:items-start items-center gap-6 ">
-            <h1 className="text-4xl lg:text-8xl font-semibold text-center lg:text-left">
+            <h1 className="text-5xl lg:text-8xl font-bold text-center lg:text-left">
               Welcome to <span className="text-primary">Our Site !</span>
             </h1>
             <p className="text-lg text-center lg:text-left">

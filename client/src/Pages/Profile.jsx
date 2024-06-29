@@ -46,9 +46,9 @@ const { userBlogs , setuserBlogs } = useContext(BlogContext);
   useEffect(() => {
     // Make a function to fetch all blogs data
     async function getBlogs() {
+        setLoading(true)
       // try if api fetch
       try {
-        setLoading(true)
         // Make get request to fetch blogs from database
         await axios
           .get(`https://blog-master-server.vercel.app/api/blog/user-blogs/${userData.userId}`)
@@ -63,7 +63,9 @@ const { userBlogs , setuserBlogs } = useContext(BlogContext);
           });
         // if any error occurs
       } catch (error) {
+        console.log(error)
         toast.error(error.message);
+        setLoading(false)
       }
     }
     return () => {

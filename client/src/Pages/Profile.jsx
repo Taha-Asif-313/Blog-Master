@@ -7,12 +7,13 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import BlogNotFound from "../Components/BlogNotFound";
 import LoadingCircle from "../Components/LoadingCircle";
+import { BlogContext } from "../Context/blogsContext";
 
 const Profile = () => {
 
   const [loading, setLoading] = useState(false);
   // User blogs
-  const [userBlogs, setuserBlogs] = useState([]);
+const { blogs } = useContext(BlogContext)
 
   // get function form context api
   const { logoutUser, setuserData, userData } = useContext(AuthContext);

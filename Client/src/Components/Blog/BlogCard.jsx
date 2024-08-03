@@ -65,7 +65,7 @@ const BlogCard = ({ title, author, id, image, Delete, ProfilePic }) => {
           {/* User logo */}
           <img
             className="w-10 rounded-full"
-            // src={ProfilePic || "/default-profile.jpg"}
+            src={ProfilePic || "/default-profile.jpg"}
           />
 
           {/* User id or Username */}

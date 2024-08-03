@@ -25,7 +25,7 @@ const CreateBlog = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        `http://localhost:5000/api/blog/create/${userData.userId}`,
+        `https://blog-master-server.vercel.app/api/blog/create/${userData.userId}`,
         { title, content , imageUrl}
       
       );

@@ -29,7 +29,7 @@ const SignUp = () => {
   // Sumbit Data to backend
 
   const { data, loading, error, fetchData } = useSignUp(
-    "http://localhost:5000/api/user/register",
+    "https://blog-master-server.vercel.app/api/user/register",
     inputs
   );
   

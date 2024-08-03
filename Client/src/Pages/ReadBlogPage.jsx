@@ -13,7 +13,7 @@ const ReadBlogPage = () => {
     // Fetch data function
     const fetchData = async () => {
       await axios
-        .get(`http://localhost:5000/api/blog/read/${id}`)
+        .get(`https://blog-master-server.vercel.app/api/blog/read/${id}`)
         .then((res) => {
           if (!res.data.success) {
             toast.error(res.data.message || 'server response error!');

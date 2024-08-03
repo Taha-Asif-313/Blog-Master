@@ -26,7 +26,7 @@ const Nav = () => {
 
   const logOut = () => {
     axios
-      .delete(`http://localhost:5000/api/user/logout/${userData.userId}`, {
+      .delete(`https://blog-master-server.vercel.app/api/user/logout/${userData.userId}`, {
         withCredentials: true,
       })
       .then((res) => {

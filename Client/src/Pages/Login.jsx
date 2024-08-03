@@ -26,7 +26,7 @@ const Login = () => {
 
   // Sumbit Data to backend
   const { data, loading, error, fetchData } = useLogin(
-    "http://localhost:5000/api/user/login",
+    "https://blog-master-server.vercel.app/api/user/login",
     inputs
   );
 

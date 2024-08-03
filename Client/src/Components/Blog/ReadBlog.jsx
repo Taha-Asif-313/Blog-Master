@@ -5,7 +5,7 @@ import BlogList from "./BlogList";
 
 const ReadBlog = ({ title, content, username, ProfilePic,UserId }) => {
   const { data, error, loading } = useFetchUserBlogs(
-    `http://localhost:5000/api/blog/user-blogs/${UserId}`
+    `https://blog-master-server.vercel.app/api/blog/user-blogs/${UserId}`
   );
   return (
     <div className="flex mt-20 flex-col lg:flex-row lg:mx-24 mx-5 ">

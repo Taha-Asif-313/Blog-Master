@@ -8,7 +8,7 @@ import useFetchBlogs from "../../Hooks/useFetchBlogs";
 const AllBlogs = () => {
 
   const { data, loading, error } = useFetchBlogs(
-    "http://localhost:5000/api/blog/allblogs"
+    "https://blog-master-server.vercel.app/api/blog/allblogs"
   );
   if (loading) return <LoadingCircle />;
   if (error) toast.error(error);

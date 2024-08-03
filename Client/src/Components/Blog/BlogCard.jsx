@@ -15,7 +15,7 @@ const BlogCard = ({ title, author, id, image, Delete, ProfilePic }) => {
     setloading(true);
     try {
       await axios
-        .delete(`http://localhost:5000/api/blog/delete/${id}`)
+        .delete(`https://blog-master-server.vercel.app/api/blog/delete/${id}`)
         .then((res) => {
           toast.success(res.data.message);
           navigate("/");

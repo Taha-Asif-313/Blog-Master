@@ -53,7 +53,7 @@ const SignUp = () => {
 
   return (
     <>
-      <div className="main relative h-screen w-full text-white flex items-center justify-between px-5 pb-10 pt-32 lg:px-24">
+      <div className="main relative h-screen w-full text-white flex items-center justify-between px-5  lg:pb-10 py-32 lg:pt-32 lg:px-24">
         {/* Content show in desktop or large devices */}
         <div className="right h-full w-[40%] hidden md:flex flex-col justify-center items-start gap-6">
           <div className="logo cursor-pointer">
@@ -146,9 +146,9 @@ const SignUp = () => {
             </p>
             <button
               type="submit"
-              className="w-full bg-primary text-stone-50 font-semibold my-3 py-2 px-4 rounded-md"
+              className="w-full text-zinc-900 bg-gradient-to-tr from-cyan-600 to-primary font-semibold my-3 py-2 px-4 rounded-md"
             >
-              Register
+              SignUp
             </button>
           </form>
         </div>

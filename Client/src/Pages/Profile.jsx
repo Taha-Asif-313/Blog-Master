@@ -18,7 +18,10 @@ const Profile = () => {
     `https://blog-master-server.vercel.app/api/blog/user-blogs/${userData.userId}`
   );
   if (loading) {
-    return <LoadingCircle />;
+    return(  
+    <div className="h-screen absolute top-0 right-0 w-full">
+      <LoadingCircle />;
+    </div>)
   }
   if (error) {
     toast.error(error);

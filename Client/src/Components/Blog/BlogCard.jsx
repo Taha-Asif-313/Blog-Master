@@ -79,7 +79,7 @@ const BlogCard = ({ title, author, id, image, Delete, ProfilePic }) => {
         <div className="flex justify-center items-center gap-2 z-10">
           <Link
             to={`/read/${id}`}
-            className="font-bold py-2 px-2 rounded-lg text-sm text-stone-50 bg-primary"
+            className="font-bold py-2 px-2 rounded-md text-sm text-zinc-900 bg-gradient-to-tr from-cyan-600 to-primary "
           >
             Read More
           </Link>
@@ -87,7 +87,7 @@ const BlogCard = ({ title, author, id, image, Delete, ProfilePic }) => {
             onClick={deleteBlog}
             className={`${
               Delete ? "block" : "hidden"
-            } font-bold py-2 px-2 rounded-lg text-lg text-stone-50 lg:static absolute top-0 right-0 bg-primary`}
+            } font-bold py-2 px-2 rounded-lg text-lg text-black lg:static absolute top-0 right-0 bg-primary`}
           >
             <MdDelete />
           </Link>

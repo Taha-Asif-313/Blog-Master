@@ -107,7 +107,7 @@ const Nav = () => {
               <img
                   onClick={() => navigate("/profile")}
                   className="w-full rounded-full cursor-pointer border border-primary"
-                  src={userData.profilePic}
+                  src={userData.profilePic || "/default-profile.jpg"}
                   alt=""
                 />
               </div>
@@ -141,7 +141,7 @@ const Nav = () => {
          {isLogin && <img
             className="w-10 rounded-full border border-primary"
             onClick={() => navigate("/profile")}
-            src={userData.profilePic}
+            src={userData.profilePic || "/default-profile.jpg"}
             alt=""
           />}
           <button className="text-white focus:outline-none z-10 text-2xl">

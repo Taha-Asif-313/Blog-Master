@@ -34,7 +34,7 @@ const AllBlogs = () => {
   return (
     <>
       {/* Blogs that use can read */}
-      <div className="blog-section min-h-44 flex justify-center items-center lg:px-24 mb-20">
+      <div className="blog-section min-h-44 flex justify-center items-center px-5 lg:px-24 mb-20">
         <div className="blogs w-full h-full flex justify-between items-center flex-wrap my-5 ">
           {data.length !== 0 ? (
             displayBlogs.map((blog,index) => {

@@ -45,7 +45,7 @@ const BlogCard = ({ title, author, id, image, Delete, ProfilePic }) => {
       {/* Background image for blog */}
       <img
         className="w-full h-full object-cover z-0 absolute opacity-40"
-        src={image}
+        src={image || "/default-thum.jpg"}
         alt="Blog post"
       />
 

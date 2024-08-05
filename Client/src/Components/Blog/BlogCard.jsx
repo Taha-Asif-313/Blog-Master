@@ -9,7 +9,7 @@ const BlogCard = ({ title, author, id, image, Delete, ProfilePic }) => {
   // States
   const [loading, setloading] = useState(false);
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const deleteBlog = async () => {
     setloading(true);
@@ -44,7 +44,7 @@ const BlogCard = ({ title, author, id, image, Delete, ProfilePic }) => {
     >
       {/* Background image for blog */}
       <img
-        className="w-full h-full object-cover z-0 absolute opacity-40"
+        className="w-full h-full object-cover z-0 absolute opacity-85"
         src={image || "/default-thum.jpg"}
         alt="Blog post"
       />
@@ -53,9 +53,11 @@ const BlogCard = ({ title, author, id, image, Delete, ProfilePic }) => {
       <div className="px-6 flex flex-col gap-3 py-4 h-[60%] ">
         <Link
           to={`/read/${id}`}
-          className="font-black text-[16px] lg:text-2xl text-stone-50 mb-2 z-10 mt-4 drop-shadow-[0px_0px_2px_black] shadow-black hover:text-primary"
+          className="font-black text-[16px] lg:text-3xl text-stone-50 mb-2 z-10 mt-2 drop-shadow-[1px_1px_4px_black] shadow-black hover:text-primary"
         >
-          {title.length < 60 ? title[0].toUpperCase() + title.slice(1,60): title[0].toUpperCase() + title.slice(1,60) + "..."}
+          {title.length < 60
+            ? title[0].toUpperCase() + title.slice(1, 60)
+            : title[0].toUpperCase() + title.slice(1, 60) + "..."}
         </Link>
       </div>
 

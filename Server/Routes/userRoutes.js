@@ -1,5 +1,6 @@
 import express from 'express'
 import { register, login, update, deleteUser, logout } from "../Controllers/userController.js"
+import isLogin from '../Middlewares/isLogin.js';
 
 // Router
 const router = express.Router();
@@ -11,7 +12,7 @@ router.post("/register" , register)
 router.post("/login" , login)
 
 // Login route as POST request
-router.delete("/logout/:id" , logout)
+router.delete("/logout/:id",isLogin , logout)
 
 // Update user route as PUT request
 router.put("/update/:id" , update)

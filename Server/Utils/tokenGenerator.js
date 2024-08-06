@@ -16,7 +16,6 @@ export const generateToken = (userId, res) => {
     // Respond with a success status
     return res.status(200).json({
       success: true,
-      message: 'Token generated and cookie set',
     });
   } catch (error) {
     console.error('Error generating token:', error);

@@ -5,7 +5,7 @@ import BlogList from "./BlogList";
 
 const ReadBlog = ({ title, content, username, ProfilePic,UserId }) => {
   const { data, error, loading } = useFetchUserBlogs(
-    `https://blog-master-server.vercel.app/api/blog/user-blogs/${UserId}`
+    `https://blog-master-server.vercel.app/api/blog/read/${UserId}`
   );
   return (
     <div className="flex mt-20 flex-col lg:flex-row lg:mx-24 mx-5 ">
@@ -28,24 +28,6 @@ const ReadBlog = ({ title, content, username, ProfilePic,UserId }) => {
         <p className="">
           <div dangerouslySetInnerHTML={{ __html: content }} />
         </p>
-      </div>
-      <div className="sidecontent min-h-screen w-[30%] ">
-        <h1>More blogs</h1>
-        <div className="bottom lg:px-24">
-          <div className="blog-section px-5  my-10 ">
-            <div className="blogs static flex justify-between items-center flex-wrap mb-20">
-              {data.length !== 0 ? (
-                data.map((blog) => {
-                  return (
-                    <BlogList/>
-                  );
-                })
-              ) : (
-                <BlogNotFound />
-              )}
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   );

@@ -6,13 +6,13 @@ import isLogin from '../Middlewares/isLogin.js';
 const router = express.Router();
 
 // Create Blog route as POST request
-router.post("/create/:id",isLogin , create )
+router.post("/create/:id", create )
 
 //Get all blogs
 router.get("/allblogs" , allBlogs)
 
 // Get User Blogs route as GET request
-router.get("/user-blogs/:id",isLogin , userBlogs )
+router.get("/user-blogs/:id", userBlogs )
 
 // Get the blog data to read the blog 
 router.get("/read/:id" , readBlog)

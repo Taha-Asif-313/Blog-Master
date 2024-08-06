@@ -12,7 +12,7 @@ router.post("/register" , register)
 router.post("/login" , login)
 
 // Login route as POST request
-router.delete("/logout/:id",isLogin , logout)
+router.delete("/logout/:id", logout)
 
 // Update user route as PUT request
 router.put("/update/:id" , update)

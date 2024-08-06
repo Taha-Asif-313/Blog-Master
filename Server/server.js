@@ -1,50 +1,47 @@
 import 'dotenv/config';
-import express from 'express'
-import connectDB  from './DBconfig.js';
-import cors from 'cors'
+import express from 'express';
+import connectDB from './DBconfig.js';
+import cors from 'cors';
 import cookieParser from 'cookie-parser';
 
-// App
+// Initialize the app
 const app = express();
 
-// Cors
+// Middleware to parse JSON
+app.use(express.json());
+
 // CORS configuration options
 const corsOptions = {
-    origin:['http://localhost:3000', 'https://blogmasterofficial.netlify.app'],
+  origin: ['http://localhost:3000', 'https://blogmasterofficial.netlify.app'],
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  allowedHeaders: ['Content-Type', 'Authorization'], // Specify allowed headers
-  credentials: true, // Allow credentials (cookies, authorization headers, etc.)
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true,
   preflightContinue: false,
   optionsSuccessStatus: 204,
-  
 };
 
-
-
-
-// Routes
-import userRoute from './Routes/userRoutes.js'
-import blogRoute from './Routes/blogRoutes.js'
-
-// Configurations
-connectDB();
-
-// MiddleWares
-app.use(express.json());
+// Middlewares
 app.use(cookieParser());
-// Use the CORS middleware with the configured options
 app.use(cors(corsOptions));
 
 // Handle preflight requests for all routes
 app.options('*', cors(corsOptions));
+
+// Database connection
+connectDB();
+
+// Importing routes
+import userRoute from './Routes/userRoutes.js';
+import blogRoute from './Routes/blogRoutes.js';
+
+// Using routes
 app.use("/api/user", userRoute);
 app.use("/api/blog", blogRoute);
 
-
-// Port
+// Port configuration
 const port = process.env.PORT || 5000;
 
-// App listening
+// Start the server
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+  console.log(`Server is running on port ${port}`);
 });

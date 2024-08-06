@@ -18,11 +18,30 @@ export const allBlogs = async (req, res) => {
 };
 
 // Create blog
+ // Ensure the correct path to your Blog model
+
 export const create = async (req, res) => {
   try {
     const { title, content, imageUrl } = req.body;
-    const userId = req.user.id;
+    console.log(req.user);
+    
+    const userId = req.user?.id;
+
+    if (!userId) {
+      return res.status(400).json({
+        success: false,
+        message: "User ID is missing from the request",
+      });
+    }
+
     const user = await User.findById(userId);
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: "User not found",
+      });
+    }
+
     const blog = new Blog({
       title,
       content,
@@ -30,21 +49,24 @@ export const create = async (req, res) => {
       username: user.username,
       imageUrl,
     });
+
     await blog.save();
     user.blogs.push(blog);
     await user.save();
+
     return res.status(201).json({
       success: true,
-      message: "blog Published!",
+      message: "Blog published successfully!",
     });
   } catch (error) {
-    console.log(error);
-    res.status(404).json({
-      message: "internal server error!",
+    console.error(error);  // Log the error for debugging
+    return res.status(500).json({
       success: false,
+      message: "Internal server error!",
     });
   }
 };
+
 
 // Update blog by id
 export const updateBlog = async (req, res) => {

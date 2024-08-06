@@ -21,7 +21,7 @@ router.get("/read/:id" , readBlog)
 router.put("/update/:id" ,updateBlog)
 
 // Delete Blog route as DELETE request
-router.delete("/delete/:id",isLogin , deleteBlog )
+router.delete("/delete/:id" , deleteBlog )
 
 
 export default router

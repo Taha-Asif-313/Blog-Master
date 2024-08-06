@@ -8,19 +8,13 @@ const AuthProvider = ({ children }) => {
   const cookies = new Cookies();
 
   // States
-  const token = cookies.get("token",{path:'/'});
-  const cokkie = cookies.set("taha","taha")
-  console.log(cookies.get("token"));
-
   const [userData, setuserData] = useState(() => {
     const savedData = localStorage.getItem("User");
     return savedData ? JSON.parse(savedData) : null;
   });
 
   const [isLogin, setisLogin] = useState(() => {
-    const savedData = cookies.get('token');
-    console.log(savedData);
-    
+    const savedData = cookies.get("token");
     return savedData ? true : false;
   });
 

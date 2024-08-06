@@ -11,6 +11,5 @@ export const generateToken= (userid,res)=>{
       httpOnly: true,
       secure: true,  // Set to true if using HTTPS
         sameSite: 'None', // Adjust based on your needs
-        maxAge: 3600000, // 1 hour
       });
 }

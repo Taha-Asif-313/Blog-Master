@@ -15,7 +15,8 @@ const corsOptions = {
   allowedHeaders: ['Content-Type', 'Authorization'], // Specify allowed headers
   credentials: true, // Allow credentials (cookies, authorization headers, etc.)
   preflightContinue: false,
-  optionsSuccessStatus: 204
+  optionsSuccessStatus: 204,
+  
 };
 
 
@@ -30,12 +31,12 @@ connectDB();
 
 // MiddleWares
 app.use(express.json());
+app.use(cookieParser());
 // Use the CORS middleware with the configured options
 app.use(cors(corsOptions));
 
 // Handle preflight requests for all routes
 app.options('*', cors(corsOptions));
-app.use(cookieParser());
 app.use("/api/user", userRoute);
 app.use("/api/blog", blogRoute);
 

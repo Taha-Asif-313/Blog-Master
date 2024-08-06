@@ -15,7 +15,7 @@ const Profile = () => {
   const { userData } = useContext(AuthContext);
 
   const { data, error, loading } = useFetchUserBlogs(
-    `https://blog-master-server.vercel.app/api/blog/user-blogs/${userData.userId}`
+    `https://blog-master-server.vercel.app/api/blog/user-blogs`
   );
   if (loading) {
     return(  

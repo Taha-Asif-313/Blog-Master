@@ -21,7 +21,7 @@ export const allBlogs = async (req, res) => {
 export const create = async (req, res) => {
   try {
     const { title, content, imageUrl } = req.body;
-    const userId = req.params.id;
+    const userId = req.user.id;
     const user = await User.findById(userId);
     const blog = new Blog({
       title,

@@ -25,15 +25,15 @@ const CreateBlog = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        `https://blog-master-server.vercel.app/api/blog/create/${userData.userId}`,
-        { title, content , imageUrl}
+        `https://blog-master-server.vercel.app/api/blog/create`,
+        { title, content , imageUrl},{withCredentials:true}
       
       );
       if (response.data.success) {toast.success(response.data.message)
         navigate("/profile")
       };
     } catch (error) {
-      toast.error(error.message);
+      toast.error(error.response ? error.response.data.message : error.message);
     }
   };
 

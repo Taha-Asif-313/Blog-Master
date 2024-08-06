@@ -13,10 +13,7 @@ export const generateToken = (userId, res) => {
       sameSite: 'None', // Adjust based on your needs
     });
 
-    // Respond with a success status
-    return res.status(200).json({
-      success: true,
-    });
+  
   } catch (error) {
     console.error('Error generating token:', error);
     return res.status(500).json({

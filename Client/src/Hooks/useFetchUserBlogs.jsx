@@ -17,6 +17,8 @@ const useFetchUserBlogs = (url) => {
       });
     } catch (error) {
       seterror(error.response ? error.response.data.message : error.message);
+      console.log(error);
+      
       setloading(false);
     }
   };

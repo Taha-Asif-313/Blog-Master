@@ -114,7 +114,7 @@ export const deleteBlog = async (req, res) => {
 // Get user blogs
 export const userBlogs = async (req, res) => {
   try {
-    const id = req.user.id;
+    const id = req.params.id;
     const user = await User.findById(id).populate("blogs");
     return res.status(200).json({
       success: true,

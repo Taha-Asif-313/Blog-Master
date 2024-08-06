@@ -25,7 +25,7 @@ export const create = async (req, res) => {
     const { title, content, imageUrl } = req.body;
     console.log(req.user);
     
-    const userId = req.user?.id;
+    const userId = req.params.id;
 
     if (!userId) {
       return res.status(400).json({

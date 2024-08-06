@@ -14,8 +14,8 @@ const AuthProvider = ({ children }) => {
   });
 
   const [isLogin, setisLogin] = useState(() => {
-    const savedData = cookies.get("token");
-    return savedData ? true : false;
+    const savedData = localStorage.getItem("User");
+    return savedData !== null ? true : false;
   });
 
   // Use Effcet to store data

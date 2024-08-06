@@ -3,38 +3,27 @@ import { useParams } from "react-router-dom";
 import ReadBlog from "../Components/Blog/ReadBlog";
 import axios from "axios";
 import toast from "react-hot-toast";
+import useReadBlog from "../Hooks/useReadBlog";
+import LoadingCircle from "../Components/Loading/LoadingCircle";
 
 const ReadBlogPage = () => {
   const [blogData, setblogData] = useState({});
 
   const { id } = useParams();
 
-  useEffect(() => {
-    // Fetch data function
-    const fetchData = async () => {
-      await axios
-        .get(`https://blog-master-server.vercel.app/api/blog/read/${id}`)
-        .then((res) => {
-          if (!res.data.success) {
-            toast.error(res.data.message || 'server response error!');
-          }
-          setblogData(res.data.blogData);
-        });
-    };
-
-    return () => {
-      fetchData();
-    };
-  }, []);
+  const { data, error, loading } = useReadBlog(
+    `https://blog-master-server.vercel.app/api/blog/read/${id}`
+  );
+  if(loading) return <div className="top-0 fixed w-full h-screen left-0">
+    <LoadingCircle/>
+  </div>
 
   return (
     <>
       <ReadBlog
-        title={blogData.title}
-        content={blogData.content}
-        username={blogData.username}
-        ProfilePic={blogData.ProfilePic}
-        UserId={blogData.userId}
+        title={data.title}
+        content={data.content}
+       
       />
     </>
   );

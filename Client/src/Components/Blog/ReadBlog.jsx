@@ -2,11 +2,10 @@ import React from "react";
 import useFetchUserBlogs from "../../Hooks/useFetchUserBlogs";
 import BlogNotFound from "./BlogNotFound";
 import BlogList from "./BlogList";
+import useReadBlog from "../../Hooks/useReadBlog";
 
 const ReadBlog = ({ title, content, username, ProfilePic,UserId }) => {
-  const { data, error, loading } = useFetchUserBlogs(
-    `https://blog-master-server.vercel.app/api/blog/read/${UserId}`
-  );
+ 
   return (
     <div className="flex mt-20 flex-col lg:flex-row lg:mx-24 mx-5 ">
 

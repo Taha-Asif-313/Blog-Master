@@ -134,10 +134,12 @@ export const userBlogs = async (req, res) => {
 export const readBlog = async (req, res) => {
   try {
     const id = req.params.id;
-    const blogData = await Blog.findById(id);
+    const blog = await Blog.findById(id);
     return res.status(200).json({
       success: true,
-      blogData: blogData,
+      title: blog.title,
+      content:blog.content,
+      imageUrl:blog.imageUrl
     });
   } catch (error) {
     return res.status(400).json({

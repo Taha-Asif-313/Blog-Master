@@ -1,18 +1,25 @@
 import React, { createContext, useState } from "react";
 import { useEffect } from "react";
+import Cookies from "universal-cookie";
+
 const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
+  const cookies = new Cookies();
+
   // States
+  const token = cookies.get("token");
+  console.log(token);
 
   const [userData, setuserData] = useState(() => {
     const savedData = localStorage.getItem("User");
     return savedData ? JSON.parse(savedData) : null;
   });
-  console.log(userData);
+
   const [isLogin, setisLogin] = useState(() => {
-    const savedData = localStorage.getItem("User");
-    console.log("savedData",savedData);
+    const savedData = cookies.get('token');
+    console.log(savedData);
+    
     return savedData ? true : false;
   });
 

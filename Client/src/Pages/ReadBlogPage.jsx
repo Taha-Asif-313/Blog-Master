@@ -14,6 +14,8 @@ const ReadBlogPage = () => {
   const { data, error, loading } = useReadBlog(
     `https://blog-master-server.vercel.app/api/blog/read/${id}`
   );
+  console.log(data);
+  
   if(loading) return <div className="top-0 fixed w-full h-screen left-0">
     <LoadingCircle/>
   </div>

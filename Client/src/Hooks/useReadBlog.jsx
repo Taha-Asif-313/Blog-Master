@@ -11,7 +11,7 @@ const useReadBlog = (url) => {
     try {
       setloading(true);
       await axios.get(url, { withCredentials: true }).then((res) => {
-        setdata(res.data.blogData);
+        setdata(res.data);
 
         setloading(false);
       });

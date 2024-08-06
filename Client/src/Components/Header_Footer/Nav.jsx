@@ -79,22 +79,22 @@ const Nav = () => {
             {isLogin
               ? loginItems.map((item) => {
                   return (
-                    <Link
-                      to={item.url}
+                    <a
+                      href={item.url}
                       className="list-item px-1 transition-all hover:border-b hover:text-primary border-primary cursor-pointer"
                     >
                       <li>{item.name}</li>
-                    </Link>
+                    </a>
                   );
                 })
               : logoutItems.map((item) => {
                   return (
-                    <Link
-                      to={item.url}
+                    <a
+                      href={item.url}
                       className="list-item px-3 transition-all hover:border-b hover:text-primary border-primary cursor-pointer"
                     >
                       <li>{item.name}</li>
-                    </Link>
+                    </a>
                   );
                 })}
           </ul>
@@ -160,22 +160,22 @@ const Nav = () => {
               {isLogin
                 ? loginItems.map((item) => {
                     return (
-                      <Link
-                        to={item.url}
+                      <a
+                        href={item.url}
                         className="list-items text-center list-none py-1 px-5 bg-zinc-900 rounded-full transition-all hover:bg-primary cursor-pointer"
                       >
                         <li>{item.name}</li>
-                      </Link>
+                      </a>
                     );
                   })
                 : logoutItems.map((item) => {
                     return (
-                      <Link
-                        to={item.url}
+                      <a
+                        href={item.url}
                         className="list-items text-center list-none py-1 px-5 bg-zinc-900 rounded-full transition-all hover:bg-primary cursor-pointer"
                       >
                         <li>{item.name}</li>
-                      </Link>
+                      </a>
                     );
                   })}
             </div>

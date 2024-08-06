@@ -31,7 +31,7 @@ const BlogCard = ({ title, author, id, image, Delete, ProfilePic }) => {
 
   if (loading) {
     return (
-      <div className="mt-10 h-screen w-full absolute top-0 left-0">
+      <div className="mt-10 bg-black h-screen w-full absolute top-0 left-0">
         <LoadingCircle />
       </div>
     );

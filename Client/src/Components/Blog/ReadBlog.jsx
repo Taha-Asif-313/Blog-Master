@@ -10,7 +10,7 @@ const ReadBlog = ({ title, content, username, ProfilePic,UserId }) => {
   return (
     <div className="flex mt-20 flex-col lg:flex-row lg:mx-24 mx-5 ">
 
-      <div className="flex w-[70%] flex-col gap-5 h-screen overflow-y-auto p-4">
+      <div className="flex w-full flex-col gap-5 h-screen overflow-y-auto p-4">
         <div className="flex items-center z-10">
           {/* User logo */}
           <div className="w-10 border border-primary h-10 rounded-full">

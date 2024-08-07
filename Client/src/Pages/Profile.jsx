@@ -60,12 +60,7 @@ const Profile = () => {
             </Link>
 
             {/* Delete Btn */}
-            <Link
-              to={"/createblog"}
-              className="cursor-pointer flex items-center justify-center gap-2 text-xl py-2 px-4 bg-primary rounded-md "
-            >
-              <MdDeleteOutline />
-            </Link>
+         
 
             {/* logout button */}
             <Link

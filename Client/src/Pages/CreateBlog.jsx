@@ -62,12 +62,12 @@ const CreateBlog = () => {
             />
 
             <Editor
-              className="w-full text-white bg-black"
+              className="w-full bg-white"
               value={content}
               onTextChange={(e) => {setcontent(e.htmlValue)
                 
               }}
-              style={{ height: "320px", background: "#000", color:"#fff",  }}
+              style={{ height: "320px", background: "#fff", color:"#000",  }}
             />
             <input
               className="px-2 py-2  bg-transparent outline-none border border-primary rounded-sm w-full"

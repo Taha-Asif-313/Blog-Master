@@ -50,10 +50,10 @@ const Nav = () => {
                 <div className="modal-action ">
                   <form method="dialog">
                     {/* if there is a button in form, it will close the modal */}
-                    <button onClick={logOut} className="py-2 transition-all px-4 rounded-lg text-sm text-stone-50 bg-primary hover:bg-white hover:text-black mx-2">
+                    <button onClick={logOut} className="py-2 transition-all px-4 rounded-lg text-sm text-black bg-primary hover:bg-white hover:text-black mx-2">
                       Confirm
                     </button>
-                    <button className="py-2 px-4 transition-all rounded-lg text-sm text-stone-50 bg-primary hover:bg-white hover:text-black">
+                    <button className="py-2 px-4 transition-all rounded-lg text-sm text-black bg-primary hover:bg-white hover:text-black">
                       Cancel
                     </button>
                   </form>

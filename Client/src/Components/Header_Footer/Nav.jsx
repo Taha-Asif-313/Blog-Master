@@ -69,7 +69,7 @@ const Nav = () => {
             className="logo cursor-pointer"
           >
             <h1 className="flex items-center gap-2 font-bold">
-              <PiBookOpenTextFill className="font-bold text-4xl text-primary" />{" "}
+             <img className="text-primary w-10" src="/favicon.png" alt="" />
               <span className="text-sm lg:text-lg"> Blog Master</span>
             </h1>
           </div>

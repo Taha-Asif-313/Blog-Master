@@ -33,6 +33,10 @@ const AuthProvider = ({ children }) => {
     window.localStorage.removeItem("User");
   };
 
+  setTimeout(()=>{
+localStorage.removeItem("User")
+  }, 1000 * 60 * 60)
+
   return (
     <AuthContext.Provider
       value={{

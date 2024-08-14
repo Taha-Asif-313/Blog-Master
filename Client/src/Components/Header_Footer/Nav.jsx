@@ -36,6 +36,7 @@ const Nav = () => {
           navigate("/");
           toast.success(res.data.message);
           localStorage.removeItem("User");
+          location.reload()
         } else {
           toast.error(res.data.message);
         }
@@ -115,14 +116,14 @@ const Nav = () => {
                   />
                 </div>
 
-                <Link
+                <a
                   onClick={() =>
                     document.getElementById("my_modal_1").showModal()
                   }
                   className="singup-btn rounded-full py-1 px-5 transition-all bg-transparent border-2 border-primary cursor-pointer hover:bg-primary hover:text-black"
                 >
                   Logout
-                </Link>
+                </a>
               </>
             ) : (
               <>
@@ -189,14 +190,14 @@ const Nav = () => {
             <div className="btns flex flex-col justify-center gap-2">
               {isLogin ? (
                 <>
-                  <Link
+                  <a
                     onClick={() =>
                       document.getElementById("my_modal_1").showModal()
                     }
                     className="singup-btn text-center rounded-full py-1 px-5 transition-all bg-transparent border-2 border-primary cursor-pointer hover:bg-primary hover:text-black"
                   >
                     Logout
-                  </Link>
+                  </a>
                 </>
               ) : (
                 <>

@@ -7,15 +7,13 @@ import { Editor } from "primereact/editor";
 import "primereact/resources/themes/lara-light-cyan/theme.css";
 
 const CreateBlog = () => {
-
   // UseNavigate
-  const navigate  = useNavigate()
-
+  const navigate = useNavigate();
 
   // states
   const [title, settitle] = useState("");
   const [content, setcontent] = useState("");
-  const [imageUrl,setimageUrl] = useState("");
+  const [imageUrl, setimageUrl] = useState("");
 
   // User data
   const { userData } = useContext(AuthContext);
@@ -26,16 +24,16 @@ const CreateBlog = () => {
     try {
       const response = await axios.post(
         `https://blog-master-server.vercel.app/api/blog/create/${userData.userId}`,
-        { title, content , imageUrl},{withCredentials:true}
-      
+        { title, content, imageUrl },
+        { withCredentials: true }
       );
-      if (response.data.success) {toast.success(response.data.message)
-        navigate("/profile")
-      };
+      if (response.data.success) {
+        toast.success(response.data.message);
+        navigate("/profile");
+      }
     } catch (error) {
       toast.error(error.message);
       console.log(error);
-      
     }
   };
 
@@ -64,10 +62,10 @@ const CreateBlog = () => {
             <Editor
               className="w-full bg-white"
               value={content}
-              onTextChange={(e) => {setcontent(e.htmlValue)
-                
+              onTextChange={(e) => {
+                setcontent(e.htmlValue);
               }}
-              style={{ height: "320px", background: "#fff", color:"#000",  }}
+              style={{ height: "320px", background: "#fff", color: "#000" }}
             />
             <input
               className="px-2 py-2  bg-transparent outline-none border border-primary rounded-sm w-full"

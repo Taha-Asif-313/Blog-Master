@@ -18,10 +18,11 @@ const Profile = () => {
     `https://blog-master-server.vercel.app/api/blog/user-blogs/${userData.userId}`
   );
   if (loading) {
-    return(  
-    <div className="h-screen absolute top-0 right-0 w-full">
-      <LoadingCircle />;
-    </div>)
+    return (
+      <div className="h-screen absolute top-0 right-0 w-full">
+        <LoadingCircle />;
+      </div>
+    );
   }
   if (error) {
     toast.error(error);
@@ -60,7 +61,6 @@ const Profile = () => {
             </Link>
 
             {/* Delete Btn */}
-         
 
             {/* logout button */}
             <Link

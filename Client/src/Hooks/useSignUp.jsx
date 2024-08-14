@@ -14,11 +14,11 @@ const useSignUp = (url, inputs) => {
       const res = await axios.post(url, inputs, { withCredentials: true });
       if (res.data.success) {
         setData(res.data);
-        toast.success(res.data.message)
+        toast.success(res.data.message);
         setLoading(false);
       } else {
         setError(res.data.message);
-        toast.error(res.data.message)
+        toast.error(res.data.message);
         setLoading(false);
       }
     } catch (error) {

@@ -15,18 +15,17 @@ const ReadBlogPage = () => {
     `https://blog-master-server.vercel.app/api/blog/read/${id}`
   );
   console.log(data);
-  
-  if(loading) return <div className="top-0 fixed w-full h-screen left-0">
-    <LoadingCircle/>
-  </div>
+
+  if (loading)
+    return (
+      <div className="top-0 fixed w-full h-screen left-0">
+        <LoadingCircle />
+      </div>
+    );
 
   return (
     <>
-      <ReadBlog
-        title={data.title}
-        content={data.content}
-       
-      />
+      <ReadBlog title={data.title} content={data.content} />
     </>
   );
 };

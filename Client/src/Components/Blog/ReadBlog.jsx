@@ -1,14 +1,8 @@
 import React from "react";
-import useFetchUserBlogs from "../../Hooks/useFetchUserBlogs";
-import BlogNotFound from "./BlogNotFound";
-import BlogList from "./BlogList";
-import useReadBlog from "../../Hooks/useReadBlog";
 
-const ReadBlog = ({ title, content, username, ProfilePic,UserId }) => {
- 
+const ReadBlog = ({ title, content, username, ProfilePic }) => {
   return (
     <div className="flex mt-20 flex-col lg:flex-row lg:mx-24 mx-5 ">
-
       <div className="flex w-full flex-col gap-5 h-screen overflow-y-auto p-4">
         <div className="flex items-center z-10">
           {/* User logo */}

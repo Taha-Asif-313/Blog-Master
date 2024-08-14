@@ -6,13 +6,12 @@ import LoadingCircle from "../Loading/LoadingCircle";
 import useFetchBlogs from "../../Hooks/useFetchBlogs";
 
 const AllBlogs = () => {
-
   const { data, loading, error } = useFetchBlogs(
     "https://blog-master-server.vercel.app/api/blog/allblogs"
   );
   if (loading) return <LoadingCircle />;
   if (error) toast.error(error);
-  const displayBlogs = data.slice(0,6);
+  const displayBlogs = data.slice(0, 6);
   const links = [
     "https://avatar.iran.liara.run/public/25",
     "https://avatar.iran.liara.run/public/43",
@@ -37,8 +36,7 @@ const AllBlogs = () => {
       <div className="blog-section min-h-44 flex justify-center items-center px-5 lg:px-24 mb-20">
         <div className="blogs w-full h-full flex justify-between items-center flex-wrap my-5 ">
           {data.length !== 0 ? (
-            displayBlogs.map((blog,index) => {
-              
+            displayBlogs.map((blog, index) => {
               return (
                 <BlogCard
                   title={blog.title}

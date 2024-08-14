@@ -1,4 +1,4 @@
-import jwt from 'jsonwebtoken';
+import jwt from "jsonwebtoken";
 
 // JWT token generator
 export const generateToken = (userId, res) => {
@@ -7,19 +7,16 @@ export const generateToken = (userId, res) => {
     const token = jwt.sign({ id: userId }, process.env.SECRET);
 
     // Set the token in a cookie
-    res.cookie('UserToken', token, {
+    res.cookie("token", token, {
       httpOnly: true, // Prevents JavaScript from accessing the cookie
-      secure: process.env.NODE_ENV === 'production', // Send cookie over HTTPS only in production
-      sameSite: 'None', // Controls cross-site request behavior
-      maxAge: 24 * 60 * 60 * 1000, // 1 day
-  });
-
-  
+      secure: "production", // Send cookie over HTTPS only in production
+      sameSite: "None", // Controls cross-site request behavior// 1 day
+    });
   } catch (error) {
-    console.error('Error generating token:', error);
+    console.error("Error generating token:", error);
     return res.status(500).json({
       success: false,
-      message: 'Internal server error',
+      message: "Internal server error",
     });
   }
 };

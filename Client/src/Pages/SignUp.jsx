@@ -32,7 +32,7 @@ const SignUp = () => {
     "https://blog-master-server.vercel.app/api/user/register",
     inputs
   );
-  
+
   if (data.success) {
     navigate("/login");
   }

@@ -23,7 +23,10 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/read/:id" element={<ReadBlogPage />} />
           <Route path="/profile" element={<Protected Component={Profile} />} />
-          <Route path="/createblog" element={<Protected Component={CreateBlog} />} />
+          <Route
+            path="/createblog"
+            element={<Protected Component={CreateBlog} />}
+          />
         </Routes>
         <Toaster />
       </div>

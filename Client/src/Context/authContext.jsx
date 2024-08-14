@@ -14,10 +14,10 @@ const AuthProvider = ({ children }) => {
   });
 
   const [isLogin, setisLogin] = useState(() => {
-    const savedData = localStorage.getItem("User");
-    return savedData ? true : false;
+    const savedData = JSON.parse(localStorage.getItem("User"));
+    return savedData === null ? true : false;
   });
-console.log(cookies.get("User"));
+  console.log(cookies.get("User"));
 
   // Use Effcet to store data
   useEffect(() => {
@@ -34,9 +34,9 @@ console.log(cookies.get("User"));
     window.localStorage.removeItem("User");
   };
 
-  setTimeout(()=>{
-localStorage.removeItem("User")
-  }, 1000 * 60 * 60)
+  setTimeout(() => {
+    localStorage.removeItem("User");
+  }, 1000 * 60 * 60);
 
   return (
     <AuthContext.Provider

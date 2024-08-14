@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../Context/authContext";
 
 const HeroSection = () => {
-  const {isLogin} = useContext(AuthContext)
+  const { isLogin } = useContext(AuthContext);
   return (
     <>
       {/* Main hero section || hero image and welcome test */}
@@ -19,10 +19,10 @@ const HeroSection = () => {
             Let's create blogs with your own words. Share your words with other.
           </p>
           <Link
-            to={isLogin?"/profile":"/signup"}
+            to={isLogin ? "/profile" : "/signup"}
             className="bg-gradient-to-tr from-cyan-600 to-primary text-zinc-900 font-bold px-5 py-2 rounded-md"
           >
-            {isLogin?"Go to Profile":"Get Started"}
+            {isLogin ? "Go to Profile" : "Get Started"}
           </Link>
         </div>
         <div className="hero-left h-full w-full lg:w-[50%] flex justify-end items-center pt-10 lg:pt-0">

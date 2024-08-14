@@ -6,7 +6,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/authContext";
 import axios from "axios";
 import toast from "react-hot-toast";
-import { PiBookOpenTextFill } from "react-icons/pi";
 
 const Nav = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,9 +25,12 @@ const Nav = () => {
 
   const logOut = () => {
     axios
-      .delete(`https://blog-master-server.vercel.app/api/user/logout/${userData.userId}`, {
-        withCredentials: true,
-      })
+      .delete(
+        `https://blog-master-server.vercel.app/api/user/logout/${userData.userId}`,
+        {
+          withCredentials: true,
+        }
+      )
       .then((res) => {
         if (res.data.success) {
           navigate("/");
@@ -43,23 +45,24 @@ const Nav = () => {
     <>
       {/* Dialog box to ask confirm or not */}
       <dialog id="my_modal_1" className="modal">
-              <div className="modal-box bg-black border border-primary">
-                <h3 className="font-bold text-lg text-white">
-                  Want to logout?
-                </h3>
-                <div className="modal-action ">
-                  <form method="dialog">
-                    {/* if there is a button in form, it will close the modal */}
-                    <button onClick={logOut} className="py-2 transition-all px-4 rounded-lg text-sm text-black bg-primary hover:bg-white hover:text-black mx-2">
-                      Confirm
-                    </button>
-                    <button className="py-2 px-4 transition-all rounded-lg text-sm text-black bg-primary hover:bg-white hover:text-black">
-                      Cancel
-                    </button>
-                  </form>
-                </div>
-              </div>
-            </dialog>
+        <div className="modal-box bg-black border border-primary">
+          <h3 className="font-bold text-lg text-white">Want to logout?</h3>
+          <div className="modal-action ">
+            <form method="dialog">
+              {/* if there is a button in form, it will close the modal */}
+              <button
+                onClick={logOut}
+                className="py-2 transition-all px-4 rounded-lg text-sm text-black bg-primary hover:bg-white hover:text-black mx-2"
+              >
+                Confirm
+              </button>
+              <button className="py-2 px-4 transition-all rounded-lg text-sm text-black bg-primary hover:bg-white hover:text-black">
+                Cancel
+              </button>
+            </form>
+          </div>
+        </div>
+      </dialog>
       <nav className="nav fixed w-full z-20 flex justify-between items-center py-4 lg:py-4 px-6 lg:px-20 bg-zinc-950 text-white">
         <div className="nav-start-section lg:w-[30%] w-[45%]">
           <div
@@ -69,7 +72,7 @@ const Nav = () => {
             className="logo cursor-pointer"
           >
             <h1 className="flex items-center gap-2 font-bold">
-             <img className="text-primary w-10" src="/favicon.png" alt="" />
+              <img className="text-primary w-10" src="/favicon.png" alt="" />
               <span className="text-sm lg:text-lg"> Blog Master</span>
             </h1>
           </div>
@@ -79,12 +82,12 @@ const Nav = () => {
             {isLogin
               ? loginItems.map((item) => {
                   return (
-                    <a
-                      href={item.url}
+                    <Link
+                      to={item.url}
                       className="list-item px-1 transition-all hover:border-b hover:text-primary border-primary cursor-pointer"
                     >
                       <li>{item.name}</li>
-                    </a>
+                    </Link>
                   );
                 })
               : logoutItems.map((item) => {
@@ -103,17 +106,19 @@ const Nav = () => {
           <div className="buttons hidden lg:flex items-center justify-end gap-2">
             {isLogin ? (
               <>
-              <div className="w-10">
-              <img
-                  onClick={() => navigate("/profile")}
-                  className="w-full rounded-full cursor-pointer border border-primary"
-                  src={"/default-profile.jpg"}
-                  alt=""
-                />
-              </div>
-             
+                <div className="w-10">
+                  <img
+                    onClick={() => navigate("/profile")}
+                    className="w-full rounded-full cursor-pointer border border-primary"
+                    src={"/default-profile.jpg"}
+                    alt=""
+                  />
+                </div>
+
                 <Link
-                  onClick={() => document.getElementById("my_modal_1").showModal()}
+                  onClick={() =>
+                    document.getElementById("my_modal_1").showModal()
+                  }
                   className="singup-btn rounded-full py-1 px-5 transition-all bg-transparent border-2 border-primary cursor-pointer hover:bg-primary hover:text-black"
                 >
                   Logout
@@ -121,29 +126,31 @@ const Nav = () => {
               </>
             ) : (
               <>
-                <Link
-                  to={"/signup"}
+                <a
+                  href={"/signup"}
                   className="singup-btn rounded-full py-1 px-5 font-medium transition-all bg-transparent cursor-pointer text-primary hover:bg-primary hover:font-normal hover:text-black"
                 >
                   SignUp
-                </Link>
-                <Link
-                  to={"/login"}
+                </a>
+                <a
+                  href={"/login"}
                   className="singup-btn rounded-full py-1 px-5 transition-all bg-transparent border-2 border-primary cursor-pointer hover:bg-primary hover:text-black"
                 >
                   Login
-                </Link>
+                </a>
               </>
             )}
           </div>
         </div>
         <div className="md:hidden z-50 flex items-center gap-4">
-         {isLogin && <img
-            className="w-10 rounded-full border border-primary"
-            onClick={() => navigate("/profile")}
-            src={ "/default-profile.jpg"}
-            alt=""
-          />}
+          {isLogin && (
+            <img
+              className="w-10 rounded-full border border-primary"
+              onClick={() => navigate("/profile")}
+              src={"/default-profile.jpg"}
+              alt=""
+            />
+          )}
           <button className="text-white focus:outline-none z-10 text-2xl">
             {isOpen ? (
               <IoMdClose onClick={() => setIsOpen(!isOpen)} />
@@ -183,7 +190,9 @@ const Nav = () => {
               {isLogin ? (
                 <>
                   <Link
-                     onClick={() => document.getElementById("my_modal_1").showModal()}
+                    onClick={() =>
+                      document.getElementById("my_modal_1").showModal()
+                    }
                     className="singup-btn text-center rounded-full py-1 px-5 transition-all bg-transparent border-2 border-primary cursor-pointer hover:bg-primary hover:text-black"
                   >
                     Logout

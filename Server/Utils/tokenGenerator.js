@@ -10,7 +10,7 @@ export const generateToken = (userId, res) => {
     res.cookie('UserToken', token, {
       httpOnly: true, // Prevents JavaScript from accessing the cookie
       secure: process.env.NODE_ENV === 'production', // Send cookie over HTTPS only in production
-      sameSite: 'Lax', // Controls cross-site request behavior
+      sameSite: 'None', // Controls cross-site request behavior
       maxAge: 24 * 60 * 60 * 1000, // 1 day
   });
 

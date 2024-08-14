@@ -49,7 +49,7 @@ const Login = () => {
 
   return (
     <>
-      <div className="main h-screen w-full flex items-center justify-between px-10 lg:px-24">
+      <div className="main h-screen w-full flex items-center justify-between px-5 lg:px-24">
         {/* Content show in desktop or large devices */}
         <div className="right hidden h-full w-[40%] lg:flex flex-col justify-center items-start gap-6">
           <div className="logo cursor-pointer">
@@ -94,8 +94,8 @@ const Login = () => {
 
             <p className="w-full text-center">
               Want account?{" "}
-              <Link to={"/register"} className="text-primary font-semibold">
-                Register
+              <Link to={"/signup"} className="text-primary font-semibold">
+                SignUp
               </Link>
             </p>
             <button className="w-full text-zinc-900 bg-gradient-to-tr from-cyan-600 to-primary font-semibold py-2 px-4 rounded-md">

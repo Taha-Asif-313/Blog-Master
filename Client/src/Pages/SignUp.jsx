@@ -53,7 +53,7 @@ const SignUp = () => {
 
   return (
     <>
-      <div className="main relative h-screen w-full text-white flex items-center justify-between px-5  lg:pb-10 py-32 lg:pt-32 lg:px-24">
+      <div className="main relative min-h-screen lg:h-screen w-full text-white flex items-center justify-between px-5  lg:pb-10 py-32 lg:pt-32 lg:px-24">
         {/* Content show in desktop or large devices */}
         <div className="right h-full w-[40%] hidden md:flex flex-col justify-center items-start gap-6">
           <div className="logo cursor-pointer">

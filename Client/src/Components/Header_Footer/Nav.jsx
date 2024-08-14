@@ -110,7 +110,7 @@ const Nav = () => {
                   <img
                     onClick={() => navigate("/profile")}
                     className="w-full rounded-full cursor-pointer border border-primary"
-                    src={"/default-profile.jpg"}
+                    src={userData.profilePic || "/default-profile.jpg"}
                     alt=""
                   />
                 </div>
@@ -147,7 +147,7 @@ const Nav = () => {
             <img
               className="w-10 rounded-full border border-primary"
               onClick={() => navigate("/profile")}
-              src={"/default-profile.jpg"}
+              src={userData.profilePic || "/default-profile.jpg"}
               alt=""
             />
           )}

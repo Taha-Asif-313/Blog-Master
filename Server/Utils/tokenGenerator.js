@@ -7,11 +7,12 @@ export const generateToken = (userId, res) => {
     const token = jwt.sign({ id: userId }, process.env.SECRET);
 
     // Set the token in a cookie
-    res.cookie('token', token, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === 'production', // Set to true if using HTTPS
-      sameSite: 'None', // Adjust based on your needs
-    });
+    res.cookie('UserToken', token, {
+      httpOnly: true, // Prevents JavaScript from accessing the cookie
+      secure: process.env.NODE_ENV === 'production', // Send cookie over HTTPS only in production
+      sameSite: 'Lax', // Controls cross-site request behavior
+      maxAge: 24 * 60 * 60 * 1000, // 1 day
+  });
 
   
   } catch (error) {

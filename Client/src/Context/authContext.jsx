@@ -15,7 +15,7 @@ const AuthProvider = ({ children }) => {
 
   const [isLogin, setisLogin] = useState(() => {
     const savedData = JSON.parse(localStorage.getItem("User"));
-    return savedData === null ? true : false;
+    return savedData ? true : false;
   });
   console.log(cookies.get("User"));
 

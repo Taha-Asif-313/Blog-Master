@@ -35,7 +35,7 @@ const Nav = () => {
         if (res.data.success) {
           navigate("/");
           toast.success(res.data.message);
-          logoutUser();
+          localStorage.removeItem("User");
         } else {
           toast.error(res.data.message);
         }
@@ -167,12 +167,12 @@ const Nav = () => {
               {isLogin
                 ? loginItems.map((item) => {
                     return (
-                      <a
-                        href={item.url}
+                      <Link
+                        to={item.url}
                         className="list-items text-center list-none py-1 px-5 bg-zinc-900 rounded-full transition-all hover:bg-primary cursor-pointer"
                       >
                         <li>{item.name}</li>
-                      </a>
+                      </Link>
                     );
                   })
                 : logoutItems.map((item) => {
@@ -200,18 +200,18 @@ const Nav = () => {
                 </>
               ) : (
                 <>
-                  <Link
-                    to={"/signup"}
+                  <a
+                    href={"/signup"}
                     className="singup-btn text-center rounded-full py-1 px-5 transition-all bg-transparent border-2 border-primary cursor-pointer hover:bg-primary hover:text-black"
                   >
                     SignUp
-                  </Link>
-                  <Link
-                    to={"/login"}
+                  </a>
+                  <a
+                    href={"/login"}
                     className="singup-btn text-center rounded-full py-1 px-5 transition-all bg-transparent border-2 border-primary cursor-pointer hover:bg-primary hover:text-black"
                   >
                     Login
-                  </Link>
+                  </a>
                 </>
               )}
             </div>

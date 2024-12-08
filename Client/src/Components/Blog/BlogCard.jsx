@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 import axios from "axios";
 import LoadingCircle from "../Loading/LoadingCircle";
 
-const BlogCard = ({ title, author, id, image, Delete, ProfilePic }) => {
+const BlogCard = ({ title, content, author, id, image, Delete, ProfilePic }) => {
   // States
   const [loading, setloading] = useState(false);
 
@@ -39,64 +39,36 @@ const BlogCard = ({ title, author, id, image, Delete, ProfilePic }) => {
 
   return (
     // BlogCard Component
-    <div
-      className={`w-full mx-2 lg:mx-2 lg:w-[45%] h-[180px] lg:h-[220px] bg-cyan-950 relative rounded-xl overflow-hidden shadow-gray-950 shadow-lg my-2 lg:m-4`}
-    >
-      {/* Background image for blog */}
-      <img
-        className="w-full h-full object-cover z-0 absolute opacity-85"
-        src={image || "/default-thum.jpg"}
-        alt="Blog post"
-      />
-
-      {/* Title of blog */}
-      <div className="px-6 flex flex-col gap-3 py-4 h-[60%] ">
-        <Link
-          to={`/read/${id}`}
-          className="font-black text-xl lg:text-3xl text-stone-50 mb-2 z-10 mt-2 drop-shadow-[2px_2px_4px_black] shadow-black hover:text-primary"
-        >
-          {title.length < 60
+    <>
+   <div class="bg-white mb-2 w-full lg:w-[45%] h-[250px] cursor-pointer rounded-lg overflow-hidden group relative before:absolute before:inset-0 before:z-10 before:bg-black before:opacity-80">
+            <img src={image || "/default-thum.jpg"} alt="Blog Post 1" class="w-full h-full object-fill object-center group-hover:scale-110 transition-all duration-300" />
+            <div class="p-6 absolute bottom-0 left-0 right-0 z-20">
+       
+              <h3 class="text-xl font-bold text-primary">  {title.length < 60
             ? title[0].toUpperCase() + title.slice(1, 60)
-            : title[0].toUpperCase() + title.slice(1, 60) + "..."}
-        </Link>
-      </div>
-
-      {/* User id and readmore button and edit or delete buttons */}
-      <div className="px-6 py-4 h-[40%] flex justify-between items-center">
-        <div className="flex items-center z-10">
+            : title[0].toUpperCase() + title.slice(1, 60) + "..."}</h3>
+              <div class="mt-2">
+                <p class="text-gray-200 lg:text-sm text-[13px] ">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis accumsan, nunc et tempus blandit, metus mi consectetur felis turpis vitae ligula.</p>
+              </div>
+              <div className="flex items-center mt-2 z-10">
           {/* User logo */}
           <img
-            className="w-10 rounded-full"
+            className="w-6 rounded-full"
             src={ProfilePic || "/default-profile.jpg"}
           />
 
           {/* User id or Username */}
-          <span className="inline-block rounded-full px-3 py-1 text-sm font-semibold text-stone-50 mr-2 ">
+          <span className="inline-block rounded-full px-3 py-1 text-[12px] text-stone-50 mr-2 ">
             {author}
           </span>
           {/* <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{date}</span> */}
         </div>
+            </div>
+          </div>
 
-        {/* ReadMore buttons and edit and delete button  */}
-        <div className="flex justify-center items-center gap-2 z-10">
-          <Link
-            to={`/read/${id}`}
-            className="font-bold py-2 px-2 rounded-md text-sm text-zinc-900 bg-gradient-to-tr from-cyan-600 to-primary "
-          >
-            Read More
-          </Link>
-          <Link
-            onClick={deleteBlog}
-            className={`${
-              Delete ? "block" : "hidden"
-            } font-bold py-2 px-2 rounded-lg text-lg text-black lg:static absolute top-0 right-0 bg-primary`}
-          >
-            <MdDelete />
-          </Link>
-        </div>
-      </div>
-    </div>
+    </>
   );
 };
 
 export default BlogCard;
+

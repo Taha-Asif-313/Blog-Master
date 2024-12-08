@@ -10,11 +10,13 @@ import Profile from "./Pages/Profile";
 import CreateBlog from "./Pages/CreateBlog";
 import Protected from "./Components/Protected";
 import ReadBlogPage from "./Pages/ReadBlogPage";
+import Nav from "./Components/Header_Footer/Header";
 
 const App = () => {
   return (
     <>
       <div className="">
+        <Nav/>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/blogs" element={<Blogs />} />

@@ -64,7 +64,7 @@ const Nav = () => {
           </div>
         </div>
       </dialog>
-      <nav className="nav fixed w-full z-20 flex justify-between items-center py-4 lg:py-4 px-6 lg:px-20 bg-zinc-950 text-white">
+      <nav className="nav fixed w-full z-20 flex justify-between items-center py-4 lg:py-4 px-6 lg:px-10 bg-white text-black">
         <div className="nav-start-section lg:w-[30%] w-[45%]">
           <div
             onClick={() => {
@@ -73,8 +73,7 @@ const Nav = () => {
             className="logo cursor-pointer"
           >
             <h1 className="flex items-center gap-2 font-bold">
-              <img className="text-primary w-10" src="/favicon.png" alt="" />
-              <span className="text-sm lg:text-lg"> Blog Master</span>
+              <img className="h-8 hue-rotate-30" src="/logo.png" alt="" />
             </h1>
           </div>
         </div>
@@ -85,7 +84,7 @@ const Nav = () => {
                   return (
                     <Link
                       to={item.url}
-                      className="list-item px-1 transition-all hover:border-b hover:text-primary border-primary cursor-pointer"
+                      className="list-item text-sm px-1 transition-all hover:border-b hover:text-primary border-primary cursor-pointer"
                     >
                       <li>{item.name}</li>
                     </Link>
@@ -95,7 +94,7 @@ const Nav = () => {
                   return (
                     <a
                       href={item.url}
-                      className="list-item px-3 transition-all hover:border-b hover:text-primary border-primary cursor-pointer"
+                      className="list-item text-sm px-1 transition-all hover:border-b hover:text-primary border-primary cursor-pointer"
                     >
                       <li>{item.name}</li>
                     </a>
@@ -129,13 +128,13 @@ const Nav = () => {
               <>
                 <a
                   href={"/signup"}
-                  className="singup-btn rounded-full py-1 px-5 font-medium transition-all bg-transparent cursor-pointer text-primary hover:bg-primary hover:font-normal hover:text-black"
+                  className="singup-btn text-sm rounded-full py-1 px-5 font-medium transition-all bg-transparent cursor-pointer text-primary hover:bg-primary hover:font-normal hover:text-black"
                 >
                   SignUp
                 </a>
                 <a
                   href={"/login"}
-                  className="singup-btn rounded-full py-1 px-5 transition-all bg-transparent border-2 border-primary cursor-pointer hover:bg-primary hover:text-black"
+                  className="singup-btn text-sm rounded-full py-1 px-5 transition-all bg-transparent border-2 border-primary cursor-pointer hover:bg-primary hover:text-black"
                 >
                   Login
                 </a>
@@ -219,6 +218,7 @@ const Nav = () => {
           </div>
         )}
       </nav>
+   
     </>
   );
 };

@@ -1,6 +1,7 @@
 import React from "react";
 import AllBlogs from "../Components/Home/AllBlogs";
 
+
 const Blogs = () => {
   return (
     <>

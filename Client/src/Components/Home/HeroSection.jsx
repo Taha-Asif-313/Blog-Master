@@ -7,7 +7,7 @@ const HeroSection = () => {
   return (
     <>
       {/* Main hero section || hero image and welcome test */}
-      <div className="main-hero px-14 lg:px-24 h-screen w-full flex justify-between items-center flex-col-reverse mt-14 lg:mt-0 lg:flex-row">
+      <div className="main-hero px-5 lg:px-10 lg:h-screen w-full flex justify-between items-center flex-col-reverse pt-14 lg:mt-0 lg:flex-row">
         <div className="hero-right h-full w-full lg:w-[50%] flex flex-col justify-center lg:items-start items-center gap-6 ">
           <h1 className="text-[36px] leading-[40px] lg:text-6xl font-bold text-center lg:text-left">
             Welcome to{" "}
